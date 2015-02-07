@@ -11,10 +11,10 @@ public class RestClient {
 	public static void main(String args[])
 	{
 		Client c=new Client();
-		WebResource web=c.resource("http://localhost:8181/RestWeb/student/post/");
-		String input="/dataaa/rahul\\asv";
+		WebResource web=c.resource("http://localhost:8181/RestWeb/"); //base URL
+		String input="/pictt";
 	//	System.out.println(web.post(ClientResponse.class));
-	    ClientResponse cr=web.post(ClientResponse.class,input);
+	    ClientResponse cr=web.path("student").path("post").post(ClientResponse.class,input);
 		System.out.println(cr.toString());
 		Student s=cr.getEntity(Student.class);
 		System.out.println(s);
